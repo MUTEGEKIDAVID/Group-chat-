@@ -90,8 +90,11 @@ public class Client {
       
      public static void main(String args[]) throws IOException{
          Scanner s= new Scanner(System.in);
+         System.out.println("Enter  the group  name: ");
+         String gname=s.nextLine();
          
-         System.out.println("Enter your username for the group chat: ");
+         if(gname.equals("1")){
+              System.out.println("Enter your username for the group chat: ");
          
          String username= s.nextLine();
          
@@ -99,6 +102,22 @@ public class Client {
          Client client = new Client(socket,username);
          client.listenForMessages();
          client.sendMessage();
+         
+         
+         }else if(gname.equals("2")){
+          System.out.println("Enter your username for the group chat: ");
+         
+         String username= s.nextLine();
+         
+         Socket socket = new Socket("localhost",1235);
+         Client client = new Client(socket,username);
+         client.listenForMessages();
+         client.sendMessage();
+         
+         }
+         
+         
+        
          
          
      } 

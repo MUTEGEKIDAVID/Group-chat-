@@ -33,7 +33,7 @@ public class Server {
             
         }catch(IOException e){
            
-            
+            CloseServerSocket();
         }
     }
     //this method is to close our server socket. used if we wantto close our server spcket when an error occurs
@@ -51,9 +51,14 @@ public class Server {
     
     public static void main(String args[]) throws IOException{
         ServerSocket serverSocket= new ServerSocket(1234);// server listens to all clients trying to connecr to that port
+        ServerSocket serverSocket2= new ServerSocket(1235);
         
         Server server= new Server(serverSocket);
+        Server server2= new Server(serverSocket2);
+        
         server.StartServer();
+        server2.StartServer();
+        
     }
     
 }
